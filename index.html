@@ -33,22 +33,30 @@
           <li class="text-[#b6bcc8] cursor-pointer">Men</li>
           <li class="text-[#b6bcc8] cursor-pointer">Women</li>
           <li class="text-[#b6bcc8] cursor-pointer">About</li>
-          <li class="text-[#b6bcc8] cursor-pointer">Contact</li>
+          <li class="text-[#b6bcc8] 
+          cursor-pointer">Contact</li>
         </ul>
       </div>
-      <div class="flex items-center gap-[50px]">
+      <div class="flex items-center relative gap-[50px]">
         <img src="images/icon-cart.svg" alt="cart" class="w-[17px] cursor-pointer">
+        <div class="absolute"></div>
         <img src="images/image-avatar.png" alt="Profile-img" class="h-[35px] w-[35px]">
       </div>
     </nav>
     <section class="mt-24 grid grid-cols-2 items-center gap-[0px] w-11/12 m-auto pb-16">
+    
       <div class="left">
-        <div class="w-[400px] h-[400px] rounded-2xl bg-[url('/images/image-product-1.jpg')] bg-[length:400px_400px] mb-10 bg-no-repeat" id="image-slider"></div>
+        <div class="w-[400px] h-[400px] rounded-2xl mb-10">
+          <img src="images/image-product-1.jpg" alt="" class="w-full rounded-2xl" id="slider-img">
+          <img src="images/image-product-2.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
+          <img src="images/image-product-3.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img ">
+          <img src="images/image-product-4.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
+        </div>
         <div class="flex gap-[25px]">
-          <img src="images/image-product-1.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer opacity-50 focus:border focus:border-[#ff7d1a] focus:border-solid" id="img-preview">
-          <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer focus:opacity-50 focus:border focus:border-[#ff7d1a] focus:border-solid" id="img-preview">
-          <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer focus:opacity-50 focus:border focus:border-[#ff7d1a] focus:border-solid" id="img-preview">
-          <img src="images/image-product-4-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer focus:opacity-50 focus:border focus:border-[#ff7d1a] focus:border-solid" id="img-preview">
+          <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(0)" id="thumbnail">
+          <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(1)" id="thumbnail">
+          <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(2)" id="thumbnail">
+          <img src="images/image-product-4-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(3)" id="thumbnail">
         </div>
       </div>
       <div class="right">

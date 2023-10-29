@@ -1,28 +1,35 @@
-const productImages = document.querySelectorAll("img-preview");
-const productImageSlide = document.getElementById("image-slider");
 const addItem = document.getElementById('add-btn');
 const minusItem = document.getElementById('minus-btn');
 const cartQuantity = document.getElementById('cartQuantity');
 
 
-let activeImageSlide = 0;
+let currentImage = 0;
+const images = document.querySelectorAll('slider-img');
+const thumbnails = document.querySelectorAll('thumbnail');
 
-productImages.forEach((item, i) => {
-    item.addEventListener('click', () => {
-      console.log("clicked");
-        productImages[activeImageSlide].classList.remove('opacity');
-        item.classList.add('opacity');
-        productImageSlide.style.backgroundImage = `url('/images/image-product-2.jpg')`;
-        activeImageSlide = i;
-    })
-})
+function showImage(index) {
+  images[currentImage].style.display = 'none';
+  thumbnails[currentImage].classList.remove('active');
+  currentImage = index;
+  images[currentImage].style.display = 'block';
+  thumbnails[currentImage].classList.add('active');
+}
+
+function prevImage() {
+  const prevIndex = (currentImage - 1 + images.length) % images.length;
+  showImage(prevIndex);
+}
+
+function nextImage() {
+  const nextIndex = (currentImage + 1) % images.length;
+  showImage(nextIndex);
+}
 
 
-
-addItem.addEventlistener("click", () => {
+addItem.addEventListener("click", () => {
   cartQuantity++;
 })
 
-minusItem.addEventlistener("click", () => {
+minusItem.addEventListener("click", () => {
   cartQuantity--;
 })
