@@ -1,6 +1,10 @@
 const addItem = document.getElementById('add-btn');
 const minusItem = document.getElementById('minus-btn');
 const cartQuantity = document.getElementById('cartQuantity');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const mobileNav = document.getElementById('mobile-nav');
+
 
 
 let currentImage = 0;
@@ -32,4 +36,12 @@ addItem.addEventListener("click", () => {
 
 minusItem.addEventListener("click", () => {
   cartQuantity--;
+})
+
+menuBtn.addEventListener("click", () => {
+  mobileNav.style.display = 'flex';
+})
+
+closeBtn.addEventListener("click", () => {
+  mobileNav.style.display = 'none';
 })

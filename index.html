@@ -24,17 +24,19 @@
   </style>
 </head>
 <body class="font-['Kumbh_Sans']">
-  <div class="w-10/12 m-auto">
-    <nav class="flex justify-between items-center h-[80px] border-b">
+  <div class="w-10/12 m-auto container">
+    <nav class="flex justify-between items-center h-[80px] border-b nav">
+      <img src="images/icon-menu.svg" class="hidden menu" alt="" id="menu-btn">
       <div class="flex gap-[50px] items-center">
         <img src="images/logo.svg" alt="Logo">
-        <ul class="flex gap-[20px]">
-          <li class="text-[#b6bcc8] cursor-pointer">Collections</li>
-          <li class="text-[#b6bcc8] cursor-pointer">Men</li>
-          <li class="text-[#b6bcc8] cursor-pointer">Women</li>
-          <li class="text-[#b6bcc8] cursor-pointer">About</li>
+        <ul class="flex gap-[20px] mobile" id="mobile-nav">
+          <img src="images/icon-close.svg" class="hidden close" alt="" id="close-btn">
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link">Collections</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link">Men</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link">Women</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link">About</li>
           <li class="text-[#b6bcc8] 
-          cursor-pointer">Contact</li>
+          cursor-pointer mobile-link">Contact</li>
         </ul>
       </div>
       <div class="flex items-center relative gap-[50px]">
@@ -43,16 +45,22 @@
         <img src="images/image-avatar.png" alt="Profile-img" class="h-[35px] w-[35px]">
       </div>
     </nav>
-    <section class="mt-24 grid grid-cols-2 items-center gap-[0px] w-11/12 m-auto pb-16">
+    <section class="mt-24 grid grid-cols-2 items-center gap-[0px] w-11/12 m-auto pb-16 one">
     
       <div class="left">
-        <div class="w-[400px] h-[400px] rounded-2xl mb-10">
+        <div class="w-[400px] h-[400px] rounded-2xl mb-10 two">
           <img src="images/image-product-1.jpg" alt="" class="w-full rounded-2xl" id="slider-img">
           <img src="images/image-product-2.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
           <img src="images/image-product-3.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img ">
           <img src="images/image-product-4.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
         </div>
-        <div class="flex gap-[25px]">
+        <div class=" hidden mb-10 mobile-img">
+          <img src="images/image-product-1.jpg" alt="" class="w-full" id="slider-img">
+          <img src="images/image-product-2.jpg" alt="" class="w-full hidden" id="slider-img">
+          <img src="images/image-product-3.jpg" alt="" class="w-full hidden" id="slider-img ">
+          <img src="images/image-product-4.jpg" alt="" class="w-full hidden" id="slider-img">
+        </div>
+        <div class="flex gap-[25px] thumbnail">
           <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(0)" id="thumbnail">
           <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(1)" id="thumbnail">
           <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(2)" id="thumbnail">
@@ -94,5 +102,69 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
   <script src="script.js"></script>
+  <style>
+    @media (width <= 375px) {
+      .menu{
+        display: inline-flex;
+        cursor: pointer;
+      }
+      .container{
+        width: 100%;
+      }
+      .nav{
+        width: 85%;
+        margin: 0 auto;
+        position: relative;
+        z-index: 20;
+      }
+      .mobile{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        width: 70%;
+        padding: 30px 0 0 50px;
+        flex-direction: column;
+        margin: 0;
+        display: none;
+        transition: 0.5s ease-in-out;
+        z-index: 50;
+      }
+
+      .close{
+        display: inline-flex;
+        width: 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+      .mobile-link{
+        color: black;
+        font-weight: 700;
+      }
+      .one{
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-top: 20px;
+      }
+      img{
+        border-radius: 0;
+      }
+      .two{
+        display: none;
+      }
+      .mobile-img{
+        width: 100%;
+        height: auto;
+        display: flex;
+      }
+      .thumbnail{
+        display: none;
+      }
+      img1{
+
+      }
+    }
+  </style>
 </body>
 </html>
