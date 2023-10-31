@@ -18,6 +18,10 @@ const cartEmpty = document.querySelector("#cart-empty");
 const thumbMob = document.getElementById("thumbMob");
 const thumbMobMod = document.getElementById("thumbMobMod");
 const lightBox = document.getElementById("lightbox");
+const addToCart = document.getElementById("add-to-cart");
+const number = document.getElementById("number");
+const totalSum = document.getElementById("total-sum");
+const deleteBtn = document.getElementById("delete-btn");
 
 
 let amountValue = 0;
@@ -30,12 +34,12 @@ function plus() {
   amount.innerText = amountValue;
 }
 
-plusItem.addEventListener("click", () => {
+function minus() {
   if (amountValue > 0) {
     amountValue--;
   }
   amount.innerText = amountValue;
-})
+}
 
 function nextImg() {
   if (currentImg == 4) {
@@ -65,10 +69,10 @@ function nextImg() {
 }
 
 function prevImg() {
-  if (currentImg == 4) {
-    currentImg == 1
+  if (currentImg == 1) {
+    currentImg == 4
   } else {
-    currentImg++;
+    currentImg--;
   }
   thumbMobMod.src=`./images/image-product-${currentImg}.jpg`;
 }
@@ -76,10 +80,8 @@ closeModal.addEventListener("click", () => {
   lightBox.style.display= "none";
 })
 
-
-
 image.addEventListener("click", () => {
-  lightbox.style.display = "flex";
+  lightBox.style.display = "flex";
 })
 
 menuBtn.addEventListener("click", () => {
@@ -93,7 +95,27 @@ closeBtn.addEventListener("click", () => {
 cart.addEventListener("click", () => {
   checkout.style.display = 'flex';
 })
+
 checkoutCloseBtn.addEventListener("click", () => {
   checkout.style.display = 'none';
+})
+
+addToCart.addEventListener("click", () => {
+  if (amountValue > 0) {
+    const total = 125.00 * amountValue;
+
+    cartEmpty.style.display = "none";
+    cartWrp.style.display = "flex";
+    indicator.style.display = "block";
+    indicator.innerText = amountValue;
+    number.innerText = amountValue;
+    totalSum.innerText = "$" + total; 
+  }
+})
+
+deleteBtn.addEventListener("click", () => {
+  cartWrp.style.display = "none";
+  cartEmpty.style.display = "flex";
+  indicator.style.display = "none";
 })
 
