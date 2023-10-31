@@ -1,45 +1,85 @@
-const addItem = document.getElementById('add-btn');
+const plusItem = document.getElementById('add-btn');
 const minusItem = document.getElementById('minus-btn');
-const cartQuantity = document.getElementById('cartQuantity');
 const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const mobileNav = document.getElementById('mobile-nav');
 const cart = document.getElementById("cart");
 const checkout = document.getElementById("checkout");
-const body = document.getElementById("body");
+const checkoutCloseBtn = document.getElementById("checkout-close-btn");
+const image = document.getElementById("image");
+const amount = document.getElementById("amount");
+const prevBtn = document.getElementById("prev-btn");
+const prevBtnMod = document.getElementById("prev-btn-mod");
+const nextBtn = document.getElementById("next-btn");
+const closeModal = document.getElementById("close-modal");
+const indicator = document.querySelector("#indicator");
+const cartWrp = document.querySelector("#cart-wrp");
+const cartEmpty = document.querySelector("#cart-empty");
+const thumbMob = document.getElementById("thumbMob");
+const thumbMobMod = document.getElementById("thumbMobMod");
+const lightBox = document.getElementById("lightbox");
 
 
+let amountValue = 0;
+let currentImg =  1;
 
+indicator.style.display = "none";
 
-let currentImage = 0;
-const images = document.querySelectorAll('slider-img');
-const thumbnails = document.querySelectorAll('thumbnail');
-
-function showImage(index) {
-  images[currentImage].style.display = 'none';
-  thumbnails[currentImage].classList.remove('active');
-  currentImage = index;
-  images[currentImage].style.display = 'block';
-  thumbnails[currentImage].classList.add('active');
+function plus() {
+  amountValue++;
+  amount.innerText = amountValue;
 }
 
-function prevImage() {
-  const prevIndex = (currentImage - 1 + images.length) % images.length;
-  showImage(prevIndex);
-}
-
-function nextImage() {
-  const nextIndex = (currentImage + 1) % images.length;
-  showImage(nextIndex);
-}
-
-
-addItem.addEventListener("click", () => {
-  cartQuantity++;
+plusItem.addEventListener("click", () => {
+  if (amountValue > 0) {
+    amountValue--;
+  }
+  amount.innerText = amountValue;
 })
 
-minusItem.addEventListener("click", () => {
-  cartQuantity--;
+function nextImg() {
+  if (currentImg == 4) {
+    currentImg == 1
+  } else {
+    currentImg++;
+  }
+  thumbMob.src=`./images/image-product-${currentImg}.jpg`;
+}
+
+prevBtn.addEventListener("click", () =>{
+  if (currentImg == 1) {
+    currentImg == 4
+  } else {
+    currentImg--;
+  }
+  thumbMob.src=`./images/image-product-${currentImg}.jpg`;
+})
+
+function nextImg() {
+  if (currentImg == 4) {
+    currentImg == 1
+  } else {
+    currentImg++;
+  }
+  thumbMobMod.src=`./images/image-product-${currentImg}.jpg`;
+}
+
+function prevImg() {
+  if (currentImg == 4) {
+    currentImg == 1
+  } else {
+    currentImg++;
+  }
+  thumbMobMod.src=`./images/image-product-${currentImg}.jpg`;
+}
+closeModal.addEventListener("click", () => {
+  lightBox.style.display= "none";
+})
+
+
+
+image.addEventListener("click", () => {
+  lightbox.style.display = "flex";
 })
 
 menuBtn.addEventListener("click", () => {
@@ -53,3 +93,7 @@ closeBtn.addEventListener("click", () => {
 cart.addEventListener("click", () => {
   checkout.style.display = 'flex';
 })
+checkoutCloseBtn.addEventListener("click", () => {
+  checkout.style.display = 'none';
+})
+

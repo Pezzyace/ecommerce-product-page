@@ -14,7 +14,7 @@
     .color{
       color: #ff7d1a;
       color: #ffede0;
-      color: hsl(220, 13%, 13%);
+      color: #1d2025;
       color: #68707d;
       color: #b6bcc8;
       color: #f7f8fd;
@@ -33,27 +33,36 @@
       <div class="flex gap-[50px] items-center mobile" id="mobile-nav">
         <ul class="flex gap-[20px] mobile-nav" >
           <img src="images/icon-close.svg" class="hidden close" alt="" id="close-btn">
-          <li class="text-[#b6bcc8] cursor-pointer mobile-link hover:text-[#000000]">Collections</li>
-          <li class="text-[#b6bcc8] cursor-pointer mobile-link hover:text-[#000000]">Men</li>
-          <li class="text-[#b6bcc8] cursor-pointer mobile-link hover:text-[#000000]">Women</li>
-          <li class="text-[#b6bcc8] cursor-pointer mobile-link hover:text-[#000000]">About</li>
-          <li class="text-[#b6bcc8] 
-          cursor-pointer mobile-link hover:text-[#000000]">Contact</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link relative hover:text-[#000000] after">Collections</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link relative hover:text-[#000000] after">Men</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link relative hover:text-[#000000] after">Women</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link relative hover:text-[#000000] after">About</li>
+          <li class="text-[#b6bcc8] cursor-pointer mobile-link relative hover:text-[#000000] after">Contact</li>
         </ul>
       </div>
       <div class="flex items-center gap-[30px] profile">
         <div class="relative" id="cart">
           <img src="images/icon-cart.svg" alt="cart" class="w-[17px] cursor-pointer">
-          <span class="absolute top-[-5px] right-[-5px]"></span>
+          <span class="absolute top-[-10px] right-[-10px] px-2 py-1  rounded-full bg-[#ff7d1a] text-white text-[8px]" id="indicator">0</span>
         </div>
-        <div class="absolute flex-col h-[170px] w-[250px] bg-white top-[60px] rounded-2xl right-[100px] shadow-md shadow-[#68707d] hidden" id="checkout">
-          <div class="px-[10px] py-[15px] border-b border-b-solid border-b-[#b6bcc8] w-full">
+        <div class="absolute flex-col h-[170px] w-[250px] bg-white top-[60px] rounded-2xl right-[100px] shadow-md shadow-[#68707d] hidden checkout" id="checkout">
+          <div class="px-[10px] py-[15px] border-b border-b-solid border-b-[#b6bcc8] w-full flex justify-between items-center">
             <h2 class="">Cart</h2>
+            <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" class=" cursor-pointer hover:fill-[#ff7d1a]" id="checkout-close-btn"fill="#69707D" fill-rule="evenodd"/></svg>
           </div>
-          <div class="h-full empty flex justify-center items-center">
-            <p class=" text-[#68707d] font-700">
+          <div class="h-full empty flex justify-center items-center" id="cart-empty">
+            <p class=" text-[#68707d] font-[700]">
               Your cart is empty.
             </p>
+          </div>
+          <div class="flex flex-col p-2 h-full justify-between hidden"id="cart-wrp">
+            <img src="" class="w-[60px] rounded-[6px]" alt="">
+            <div class="flex items-center justify-center"></div>
+            <p class="text-[#1d2025]"></p>
+            <p class="flex flex-col align-start gap-2"></p>
+            <img src="images/icon-delete.svg" class="cursor-pointer border-none w-[18px] bg-transparent"  alt="">
+            <button class="bg-[#ff7d1a] w-full rounded-xl border-none font-[700] p-2 cursor-pointer text-white">Checkout</button>
+
           </div>
         </div>
         <img src="images/image-avatar.png" alt="Profile-img" class="h-[35px] w-[35px] profile-img cursor-pointer border-2 border-transparent border-solid rounded-full hover:border-[#ff7d1a]">
@@ -61,25 +70,26 @@
     </nav>
     <section class="mt-24 grid grid-cols-2 items-center gap-[0px] w-11/12 m-auto pb-16 one">
       <div class="left">
-        <div class="w-[400px] h-[400px] rounded-2xl mb-10 two">
+        <div class="w-[400px] h-[400px] rounded-2xl mb-10 cursor-pointer two" id="image">
           <img src="images/image-product-1.jpg" alt="" class="w-full rounded-2xl" id="slider-img">
           <img src="images/image-product-2.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
           <img src="images/image-product-3.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img ">
           <img src="images/image-product-4.jpg" alt="" class="w-full hidden rounded-2xl" id="slider-img">
         </div>
         <div class=" hidden mb-10 relative mobile-img">
-          <img src="images/icon-previous.svg" alt="">
-          <img src="images/image-product-1.jpg" alt="" class="w-full" id="slider-img">
-          <img src="images/image-product-2.jpg" alt="" class="w-full hidden" id="slider-img">
-          <img src="images/image-product-3.jpg" alt="" class="w-full hidden" id="slider-img ">
-          <img src="images/image-product-4.jpg" alt="" class="w-full hidden" id="slider-img">
-          <img src="images/icon-next.svg" alt="">
+          <div class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white cursor-pointer absolute top-[50%] left-[20px]" id="prev-btn">
+            <img src="images/icon-previous.svg" class="w-[12px] h-[15px]" alt="">
+          </div>
+          <img src="images/image-product-1.jpg" alt="" class="w-full" id="thumbMob">
+          <div class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white cursor-pointer absolute top-[50%] right-[20px]" id="next-btn" onclick="nextImg()">
+            <img src="images/icon-next.svg" class="w-[12px] h-[15px]" alt="">
+          </div>
         </div>
         <div class="flex gap-[25px] thumbnail">
-          <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(0)" id="thumbnail">
-          <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(1)" id="thumbnail">
-          <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(2)" id="thumbnail">
-          <img src="images/image-product-4-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] active:opacity-50" onclick="showImage(3)" id="thumbnail">
+          <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50 selected" onclick="showImage(0)" id="thumbnail">
+          <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(1)" id="thumbnail">
+          <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(2)" id="thumbnail">
+          <img src="images/image-product-4-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(3)" id="thumbnail">
         </div>
       </div>
       <div class="right">
@@ -97,19 +107,34 @@
         </div>
         <div class="flex gap-[10px] items-center quantity">
           <div class="flex items-center buttons">
-            <button class="bg-[#f7f8fd] flex items-center justify-center rounded-tl-lg rounded-bl-lg h-[40px] w-[40px] input btn1"><img src="images/icon-minus.svg" alt="" id="minus-btn"></button>
-            <input type="text" placeholder="0" id="cartQuantity" class="bg-[#f7f8fd] flex items-center justify-center h-[40px] w-[40px] outline-none input">
+            <button class="bg-[#f7f8fd] flex items-center justify-center rounded-tl-lg rounded-bl-lg h-[40px] w-[40px] input btn1"><img src="images/icon-minus.svg" alt="" id="minus-btn" onclick="minus()"></button>
+            <p id="cartQuantity" class="bg-[#f7f8fd] flex items-center justify-center h-[40px] w-[40px] outline-none input font-[700]" id="amount">0</p>
             <button class="bg-[#f7f8fd] flex items-center justify-center rounded-tr-lg rounded-br-lg h-[40px] w-[40px] input btn2"><img src="images/icon-plus.svg" alt="" id="add-btn"></button>
           </div>
-          <button class="flex bg-[#ff7d1a] px-24 py-4 rounded-xl gap-[10px] cart">
+          <button class="flex bg-[#ff7d1a] px-24 py-4 rounded-xl gap-[10px] cart transition duration-700 hover:opacity-70">
             <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#ffffff" fill-rule="nonzero" class="w-[15px]"/></svg>
             <p class="text-white">Add to cart</p>
           </button>
         </div>
       </div>
     </section>
-    <section class="absolute">
-
+    <section class="fixed top-0 left-0 bottom-0 right-0 bg-[#00000095] pt-24  flex-col items-center hidden" id="lightbox">
+      <img src="images/icon-close.svg" class="cursor-pointer" alt="" id="close-modal">
+      <div class="relative mobile-img w-[400px] h-[400px] mb-10">
+        <div class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white cursor-pointer absolute top-[50%] left-[20px]" id="prev-btn" onclick="prevImg()">
+          <img src="images/icon-previous.svg" class="w-[12px] h-[15px]" alt="">
+        </div>
+        <img src="images/image-product-1.jpg" alt="" class="w-full rounded-2xl" id="thumbMobMod" >
+        <div class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white cursor-pointer absolute top-[50%] right-[20px]" id="next-btn" onclick="nextImg()">
+          <img src="images/icon-next.svg" class="w-[12px] h-[15px]" alt="">
+        </div>
+      </div>
+      <div class="flex gap-[25px] thumbnail">
+        <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-80 selected" onclick="showImage(0)" id="thumbnail">
+        <img src="images/image-product-2-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(1)" id="thumbnail">
+        <img src="images/image-product-3-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(2)" id="thumbnail">
+        <img src="images/image-product-4-thumbnail.jpg" alt="" class="w-[80px] h-[80px] rounded-2xl cursor-pointer border-2 border-transparent border-solid active:border-[#ff7d1a] hover:opacity-50" onclick="showImage(3)" id="thumbnail">
+      </div>
     </section>
   </main>
   <footer class="attribution">
@@ -118,6 +143,19 @@
   </footer>
   <script src="script.js"></script>
   <style>
+    .after:hover::after{
+        content: "";
+        position: absolute;
+        bottom: -30px;
+        border: 10px;
+        display: block;
+        background-color: #ff7d1a;
+        width: 100%;
+        height: 5px;
+      }
+    .selected{
+      opacity: 50%;
+    }
     @media (width <= 375px) {
       .menu{
         display: inline-flex;
@@ -127,13 +165,29 @@
         width: 100%;
       }
       .nav{
-        width: 85%;
-        margin: 0 auto;
+        padding: 0 30px 0 30px;
         position: relative;
         z-index: 20;
+        height: 50px;
       }
       .logo{
         width: 100px;
+      }
+      .after{
+        position: relative;
+      }
+      .after:hover::after{
+        bottom: -5px;
+      }
+      .mobile-nav{
+        background-color: white;
+        flex-direction: column;
+        padding: 30px 0 0 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 85%;
       }
       .mobile{
         position: fixed;
@@ -147,16 +201,6 @@
         transition: 0.5s ease-in-out;
         z-index: 50;
         align-items: flex-start;
-      }
-      .mobile-nav{
-        background-color: white;
-        flex-direction: column;
-        padding: 30px 0 0 40px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 85%;
       }
       .close{
         display: inline-flex;
@@ -173,8 +217,17 @@
         width: 100%;
         margin-top: 0;
       }
-      img{
+      .img{
         border-radius: 0;
+      }
+      .checkout{
+        top: 60px; 
+        left: 10px;
+        right: 10px;
+        width: 95%;
+        border-radius: 5px;
+        height: 250px;
+        box-shadow: none;
       }
       .two{
         display: none;
@@ -236,6 +289,7 @@
         justify-content: center;
         font-size: 12px;
       }
+      
     }
   </style>
 </body>
