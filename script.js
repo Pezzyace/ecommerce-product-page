@@ -4,6 +4,10 @@ const cartQuantity = document.getElementById('cartQuantity');
 const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const mobileNav = document.getElementById('mobile-nav');
+const cart = document.getElementById("cart");
+const checkout = document.getElementById("checkout");
+const body = document.getElementById("body");
+
 
 
 
@@ -44,4 +48,8 @@ menuBtn.addEventListener("click", () => {
 
 closeBtn.addEventListener("click", () => {
   mobileNav.style.display = 'none';
+})
+
+cart.addEventListener("click", () => {
+  checkout.style.display = 'flex';
 })
