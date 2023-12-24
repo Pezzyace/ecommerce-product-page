@@ -8,9 +8,12 @@ const checkout = document.getElementById("checkout");
 const checkoutCloseBtn = document.getElementById("checkout-close-btn");
 const image = document.getElementById("image");
 const amount = document.getElementById("amount");
-const prevBtn = document.getElementById("prev-btn");
-const prevBtnMod = document.getElementById("prev-btn-mod");
-const nextBtn = document.getElementById("next-btn");
+// const prevBtn = document.getElementById("prev-btn");
+// const prevBtnMod = document.getElementById("prev-btn-mod");
+// const nextBtn = document.getElementById("next-btn");
+// const prevmobBtn = document.getElementById("prev-btn");
+// const prevmobBtnMod = document.getElementById("prev-btn-mod");
+// const nextmobBtn = document.getElementById("next-btn");
 const closeModal = document.getElementById("close-modal");
 const indicator = document.querySelector("#indicator");
 const cartWrp = document.querySelector("#cart-wrp");
@@ -22,10 +25,24 @@ const addToCart = document.getElementById("add-to-cart");
 const number = document.getElementById("number");
 const totalSum = document.getElementById("total-sum");
 const deleteBtn = document.getElementById("delete-btn");
+const thumbnails = document.querySelectorAll('.thumbnail');
+// const picture = document.getElementById('modal-pic');
+let currentPic = 0;
 
 
 let amountValue = 0;
 let currentImg =  1;
+
+for (let i = 0; i < thumbnails.length; i++) {
+  thumbnails[i].addEventListener("click", function () {
+    lightBox.style.display = "flex";
+
+    if (i >= 4) i -= 4;
+    thumbMob.style.backgroundImage = `url(images/image-product-${i + 1}.jpg)`;
+    currentPic = i + 1;
+  // 
+  });
+}
 
 indicator.style.display = "none";
 
@@ -41,7 +58,7 @@ function minus() {
   amount.innerText = amountValue;
 }
 
-function nextImg() {
+function nextMobImg() {
   if (currentImg == 4) {
     currentImg == 1
   } else {
@@ -50,14 +67,14 @@ function nextImg() {
   thumbMob.src=`./images/image-product-${currentImg}.jpg`;
 }
 
-prevBtn.addEventListener("click", () =>{
+function prevMobImg() {
   if (currentImg == 1) {
     currentImg == 4
   } else {
     currentImg--;
   }
   thumbMob.src=`./images/image-product-${currentImg}.jpg`;
-})
+}
 
 function nextImg() {
   if (currentImg == 4) {
@@ -76,6 +93,7 @@ function prevImg() {
   }
   thumbMobMod.src=`./images/image-product-${currentImg}.jpg`;
 }
+
 closeModal.addEventListener("click", () => {
   lightBox.style.display= "none";
 })
@@ -117,5 +135,9 @@ deleteBtn.addEventListener("click", () => {
   cartWrp.style.display = "none";
   cartEmpty.style.display = "flex";
   indicator.style.display = "none";
+})
+
+image.addEventListener("click", () => {
+  lightBox.style.display = "flex";
 })
 
